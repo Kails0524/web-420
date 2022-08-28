@@ -1,0 +1,111 @@
+#//Title: stephens-composer.yaml
+#//Author: Kailee Stephens
+#//Date: 28 August 2022
+#//Description: OpenAPI description
+
+
+openapi: 3.0.0
+info:
+  title: Composer API
+  version: "1.0"
+
+servers:
+  - url: https://localhost:3000/
+    description: Main (production) server
+paths:
+  /composers:
+    get:
+      summary: Returns a list of all composers.
+      description: |
+        Returns a list of all composers in catalog.
+      responses:
+        '200':    # status code
+          description: A JSON array of composer names
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '500':    # status code
+          description: Server exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string    
+        '501':    # status code
+          description: MongoDB exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+    post:
+      summary: Creates a new composer.
+      description: |
+        Creates and adds a new composer to the catalog.
+      responses:
+        '200':    # status code
+          description: A JSON array for new composer.
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '500':    # status code
+          description: Server exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string    
+        '501':    # status code
+          description: MongoDB exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+
+  /composers/{id}:
+    get:
+      summary: Returns a composer by ID
+      description: |
+        Returns a composers first and last name by ID
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':    # status code
+          description: A JSON array of composer names
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '500':    # status code
+          description: Server exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string    
+        '501':    # status code
+          description: MongoDB exceptions
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
