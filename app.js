@@ -11,6 +11,7 @@ const http = require("http");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const mongoose = require("mongoose");
+const composerAPI = require("./routes/stephens-composer-routes.js");
 
 /*initialize express*/
 var app = express();
