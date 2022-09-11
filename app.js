@@ -11,7 +11,8 @@ const http = require("http");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const mongoose = require("mongoose");
-const composerAPI = require("./routes/stephens-composer-routes.js");
+const composerAPI = require("./routes/stephens-composer-routes");
+const personAPI = require("./routes/stephens-person-routes")
 
 /*initialize express*/
 var app = express();
@@ -38,6 +39,8 @@ const options = {
 const openapiSpecification = swaggerJsdoc(options);
 /* Doc: wire the openapiSpecification variable to the app variable. Configure express to use /api-docs route to serve swaggerJsdoc  */
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use('/api', composerAPI);
+app.use('/api', personAPI);
 
 /* Doc: use the http library to create a new server that listens on the port 3000  */
 http.createServer(app).listen(app.get("port"), function () {
