@@ -5,13 +5,14 @@
 ; Description: Assignment 4.2 - Composer API
 */
 
+// require statements
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Schema for the composer
-let composerSchema = new Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+// composer schema
+const composerSchema = new Schema({
+  firstName: { type: String },
+  lastName: { type: String },
 });
 
 // Exporting the composer model
