@@ -17,7 +17,6 @@ const mongoose = require("mongoose");
 const composerAPI = require("./routes/stephens-composer-routes.js");
 const personAPI = require("./routes/stephens-person-routes.js");
 const userAPI = require("./routes/stephens-session-routes.js");
-const customerAPI = require("./routes/stephens-node-shopper-routes");
 const teamAPI = require("./routes/stephens-team-routes.js");
 
 /*initialize express*/
@@ -56,7 +55,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use('/api', composerAPI); //yes
 app.use("/api", personAPI); // yes
 app.use("/api", userAPI); //yes
-app.use("/api", customerAPI); //yes
 app.use('/api', teamAPI); //yes
 
 http.createServer(app).listen(app.get("port"), function () {
