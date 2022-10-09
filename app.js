@@ -1,7 +1,8 @@
 /*
  Title: app.js
- Author: Kailee Stephens
+ Author: Professor Krasso
  Date: 08/14/2022
+ Modified By: Kailee Stephens
  Description: Intro to RESTful APIs
 */
 
@@ -16,6 +17,8 @@ const mongoose = require("mongoose");
 const composerAPI = require("./routes/stephens-composer-routes.js");
 const personAPI = require("./routes/stephens-person-routes.js");
 const userAPI = require("./routes/stephens-session-routes.js");
+const customerAPI = require("./routes/stephens-node-shopper-routes");
+const teamAPI = require("./routes/stephens-team-routes.js");
 
 /*initialize express*/
 const app = express();
@@ -51,8 +54,10 @@ const openapiSpecification = swaggerJsdoc(options);
 /* Doc: wire the openapiSpecification variable to the app variable. Configure express to use /api-docs route to serve swaggerJsdoc  */
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use('/api', composerAPI); //yes
-
-
+app.use("/api", personAPI); // yes
+app.use("/api", userAPI); //yes
+app.use("/api", customerAPI); //yes
+app.use('/api', teamAPI); //yes
 
 http.createServer(app).listen(app.get("port"), function () {
   console.log(`Application started and listening on port ${app.get("port")}`);
