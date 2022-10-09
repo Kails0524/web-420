@@ -1,14 +1,10 @@
 {
   "name": "web-420",
   "author": "Kailee Stephens",
+  "private": true,
   "version": "1.0.0",
   "main": "app.js",
-  "engines": {
-    "node": "16.15.0",
-    "npm": "8.5.5"
-  },
   "scripts": {
-    "dev": "nodemon app.js",
     "start": "nodemon app.js"
   },
   "dependencies": {
@@ -20,4 +16,11 @@
     "swagger-ui-express": "^4.5.0",
     "nodemon": "^2.0.19"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.5.5"
+  }
 }
